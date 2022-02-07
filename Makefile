@@ -17,7 +17,10 @@ DOCS=./docs
 
 gitkeep/%:
 	for d in ./$*/*; do\
-        cd $$d;\
-		touch .gitkeep;\
-		cd ../..;\
+		if [ "$d" = 'bin' ]
+		then
+			cd $$d;\
+			touch .gitkeep;\
+			cd ../..;\
+		fi
     done
