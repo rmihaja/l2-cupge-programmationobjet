@@ -9,18 +9,11 @@ DOCS=./docs
 ./$(PREFIX)%:
 	mkdir .$@
 	cd .$@ && mkdir $(BIN) && mkdir $(SRC) && mkdir $(DOCS)
-	for d in .$@/*; do\
-        cd $$d;\
-		touch .gitkeep;\
-		cd ../..;\
-    done
+	touch .$@/bin/.gitkeep
 
 gitkeep/%:
 	for d in ./$*/*; do\
-		if [ "$d" = 'bin' ]
-		then
-			cd $$d;\
-			touch .gitkeep;\
-			cd ../..;\
-		fi
+		cd $$d;\
+		touch .gitkeep;\
+		cd ../..;\
     done
